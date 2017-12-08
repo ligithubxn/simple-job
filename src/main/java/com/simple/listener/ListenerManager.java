@@ -10,6 +10,7 @@ import org.apache.curator.framework.state.ConnectionState;
 import org.apache.curator.framework.state.ConnectionStateListener;
 
 /**
+ * 监听zk节点和连接状态的类
  * Created by liws on 2017/12/7.
  */
 public class ListenerManager {

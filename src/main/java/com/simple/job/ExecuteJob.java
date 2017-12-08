@@ -7,6 +7,7 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 /**
+ * 定时任务的基础类
  * Created by liws on 2017/11/28.
  */
 public class ExecuteJob implements Job {
