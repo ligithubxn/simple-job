@@ -1,0 +1,2 @@
+http\://www.simplejob.com/schema/simple/reg=com.simple.namespace.RegNameSpaceHandler
+http\://www.simplejob.com/schema/simple/job=com.simple.namespace.JobNameSpaceHandler
