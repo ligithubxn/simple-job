@@ -74,7 +74,7 @@ public class ZKOperator {
     private void createInstanceEphemeral() {
         String value = IPUtils.getIp();
         try {
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(instancePath(), value.getBytes());
+            client.create().withMode(CreateMode.EPHEMERAL).forPath(instancePath(), value.getBytes("UTF-8"));
             storgeInfo.setInstanceValue(value);
         } catch (Exception e) {
             storgeInfo.setInstanceValue(null);
