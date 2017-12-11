@@ -2,6 +2,7 @@
 基于spring标签的简单定时任务，采用zookeeper做调度中心，quartz做定时任务，curator连接zk。
 
 使用方式：
+
 1、将编译过后的jar包引入项目
 
 2、在spring配置文件中，增加对标签的依赖
