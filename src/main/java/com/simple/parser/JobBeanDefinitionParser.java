@@ -20,7 +20,7 @@ public class JobBeanDefinitionParser extends AbstractBeanDefinitionParser {
 
         BeanDefinition bd = BeanDefinitionBuilder.rootBeanDefinition(element.getAttribute("class")).getBeanDefinition();
         builder.addConstructorArgValue(bd);
-        builder.addPropertyValue("config", getJobConfig(element));
+        builder.addConstructorArgValue(getJobConfig(element));
         return builder.getBeanDefinition();
     }
 
