@@ -64,6 +64,12 @@ public class ListenerManager {
                 /**
                  * 如果重连成功，就恢复定时任务
                  */
+                String value = zkOpertaor.getInstanceDate();
+                String currentIP = IPUtils.getIp();
+
+                if(StringUtils.isNoneBlank(value) && value.equals(currentIP)) {
+                    info.setInstanceValue(value);
+                }
                 quartzOperator.resumeAllJob();
                 if(logger.isDebugEnabled()) {
                     logger.debug("All job resume");
@@ -75,7 +81,7 @@ public class ListenerManager {
     private class InstanceNodeListener implements TreeCacheListener {
 
         public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent event) throws Exception {
-
+            logger.info("out instance state = {}", event.getType());
             /**
              * 如果instance节点被删除，就重新进行选举
              */
@@ -88,16 +94,6 @@ public class ListenerManager {
                 if(logger.isDebugEnabled()) {
                     logger.debug("instance node listener trigger, zk election complete");
                 }
-            } else if(TreeCacheEvent.Type.INITIALIZED == event.getType()) {
-                /**
-                 * 如果instance节点状态为初始化，获取zk上instance节点的值，无该节点，值为空串
-                 * 并获取本机的ip，如果相等，说明本机是leader节点，将缓存的instance值，设置为zk中的值
-                 */
-                 String value = zkOpertaor.getInstanceDate();
-                 String currentIP = IPUtils.getIp();
-                 if(StringUtils.isNoneBlank(value) && value.equals(currentIP)) {
-                     info.setInstanceValue(value);
-                 }
             }
         }
     }
