@@ -42,6 +42,10 @@ public class ListenerManager {
 
         public void stateChanged(CuratorFramework curatorFramework, ConnectionState state) {
 
+            if(logger.isInfoEnabled()) {
+                logger.info("connection state listener, current state = {}", state);
+            }
+
             /**
              * 如果zk连接中断或丢失，就暂停本机的定时任务
              * 并将本机缓存的instance的值，置为空
@@ -81,7 +85,7 @@ public class ListenerManager {
     private class InstanceNodeListener implements TreeCacheListener {
 
         public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent event) throws Exception {
-            logger.info("out instance state = {}", event.getType());
+            logger.info("instance state = {}", event.getType());
             /**
              * 如果instance节点被删除，就重新进行选举
              */
