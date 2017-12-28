@@ -70,6 +70,9 @@ public class ListenerManager {
                  */
                 String value = zkOpertaor.getInstanceDate();
                 String currentIP = IPUtils.getIp();
+                if(logger.isInfoEnabled()) {
+                    logger.info("ListenerManager.ConnectionListener value = {}, currentIP = {}", value, currentIP);
+                }
 
                 if(StringUtils.isNoneBlank(value) && value.equals(currentIP)) {
                     info.setInstanceValue(value);
