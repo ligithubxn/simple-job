@@ -74,7 +74,7 @@ public class ListenerManager {
                     logger.info("ListenerManager.ConnectionListener value = {}, currentIP = {}", value, currentIP);
                 }
 
-                if(StringUtils.isNoneBlank(value) && value.equals(currentIP)) {
+                if(StringUtils.isNotBlank(value) && value.equals(currentIP)) {
                     info.setInstanceValue(value);
                 }
                 quartzOperator.resumeAllJob();
