@@ -110,12 +110,15 @@ public class ListenerManager {
         public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent event) throws Exception {
             if(TreeCacheEvent.Type.NODE_UPDATED == event.getType()) {
                 String path = event.getData().getPath();
-                if(logger.isDebugEnabled()) {
-                    logger.debug("trigger node listener trigger, node current state = {}， node path = {}", event.getType(), path);
+                if(logger.isInfoEnabled()) {
+                    logger.info("trigger node listener trigger, node current state = {}， node path = {}", event.getType(), path);
                 }
                 byte[] valArray = event.getData().getData();
                 if(valArray != null || valArray.length != 0) {
                     String value = new String(event.getData().getData(), "UTF-8");
+                    if(logger.isInfoEnabled()) {
+                        logger.info("trigger value = {}", value);
+                    }
                     SchedulerOperator p = new SchedulerOperator();
                     p.triggerJob(value);
                 }
