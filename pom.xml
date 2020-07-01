@@ -14,7 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <zk.version>3.4.10</zk.version>
     <curator.version>2.12.0</curator.version>
-    <quartz.version>2.3.0</quartz.version>
+    <quartz.version>2.3.2</quartz.version>
     <spring.version>4.3.12.RELEASE</spring.version>
     <commons.version>3.6</commons.version>
   </properties>
