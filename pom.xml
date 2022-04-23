@@ -15,7 +15,7 @@
     <zk.version>3.4.10</zk.version>
     <curator.version>2.12.0</curator.version>
     <quartz.version>2.3.0</quartz.version>
-    <spring.version>4.3.12.RELEASE</spring.version>
+    <spring.version>5.3.19</spring.version>
     <commons.version>3.6</commons.version>
   </properties>
 
